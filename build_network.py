@@ -4,7 +4,8 @@ net = NetworkBuilder('mcortex')
 net.add_nodes(N=1,cell_name='PN',
               potental='exc',
               model_type='biophysical',
-              model_processing='fullaxon',
+              model_processing='my_processor',
+              #model_processing = "aibs_perisomatic",
               model_template='ctdb:Biophys1.hoc',
               #morphology="Scnn1a_473845048_m.swc",
               morphology="86_L5_CDK20041214_nr3L5B_dend_PC_neuron_transform_registered_C2center_scaled_diameters.swc",
@@ -49,11 +50,11 @@ from bmtk.utils.sim_setup import build_env_bionet
 build_env_bionet(base_dir='model_info',      # Where to save the scripts and config files 
                  components_dir='components',
                  network_dir='model_info/network',    # Location of directory containing network files
-                 tstop=10000.0, dt=0.1,     # Run a simulation for 2000 ms at 0.1 ms intervals
+                 tstop=1000.0, dt=0.1,     # Run a simulation for 2000 ms at 0.1 ms intervals
                  report_vars=['v'],
                  #clamp_reports=["se"], # Tells simulator we want to record membrane potential and calcium traces
                  current_clamp={           # Creates a step current from 500.ms to 1500.0 ms  
-                     'amp': [0.0005],
+                     'amp': [5],
                      #'std': [0.0, 0.0],
                      'delay': [200],
                      'duration': [10000],
