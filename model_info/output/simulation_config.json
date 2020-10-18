@@ -1,0 +1,78 @@
+{
+  "target_simulator": "NEURON",
+  "run": {
+    "tstart": 0.0,
+    "tstop": 10000.0,
+    "dt": 0.1,
+    "dL": 20.0,
+    "spike_threshold": -15.0,
+    "nsteps_block": 5000
+  },
+  "conditions": {
+    "celsius": 34.0,
+    "v_init": -80.0
+  },
+  "inputs": {
+    "current_clamp": {
+      "input_type": "current_clamp",
+      "module": "IClamp",
+      "node_set": "all",
+      "gids": [
+        0
+      ],
+      "amp": [
+        0.0005
+      ],
+      "delay": [
+        200
+      ],
+      "duration": [
+        10000
+      ]
+    }
+  },
+  "output": {
+    "log_file": "/home/mizzou/Internship/L5TractNeuron/model_info/output/log.txt",
+    "output_dir": "/home/mizzou/Internship/L5TractNeuron/model_info/output",
+    "spikes_file": "/home/mizzou/Internship/L5TractNeuron/model_info/output/spikes.h5"
+  },
+  "reports": {
+    "v_report": {
+      "variable_name": "v",
+      "cells": "all",
+      "module": "membrane_report",
+      "sections": "soma"
+    }
+  },
+  "node_sets_file": "/home/mizzou/Internship/L5TractNeuron/model_info/node_sets.json",
+  "network": "/home/mizzou/Internship/L5TractNeuron/model_info/circuit_config.json",
+  "config_path": "/home/mizzou/Internship/L5TractNeuron/model_info/simulation_config.json",
+  "config_dir": "/home/mizzou/Internship/L5TractNeuron/model_info",
+  "components": {
+    "biophysical_neuron_models_dir": "/home/mizzou/Internship/L5TractNeuron/model_info/components/biophysical_neuron_models",
+    "__pycache___dir": "/home/mizzou/Internship/L5TractNeuron/model_info/components/__pycache__",
+    "point_neuron_models_dir": "/home/mizzou/Internship/L5TractNeuron/model_info/components/point_neuron_models",
+    "templates_dir": "/home/mizzou/Internship/L5TractNeuron/model_info/components/templates",
+    "synaptic_models_dir": "/home/mizzou/Internship/L5TractNeuron/model_info/components/synaptic_models",
+    "morphologies_dir": "/home/mizzou/Internship/L5TractNeuron/model_info/components/morphologies",
+    "mechanisms_dir": "/home/mizzou/Internship/L5TractNeuron/model_info/components/mechanisms"
+  },
+  "networks": {
+    "nodes": [
+      {
+        "node_types_file": "/home/mizzou/Internship/L5TractNeuron/model_info/network/mcortex_node_types.csv",
+        "nodes_file": "/home/mizzou/Internship/L5TractNeuron/model_info/network/mcortex_nodes.h5"
+      }
+    ],
+    "edges": [],
+    "gap_juncs": []
+  },
+  "node_sets": {
+    "biophysical_nodes": {
+      "model_type": "biophysical"
+    },
+    "point_nodes": {
+      "model_type": "point_process"
+    }
+  }
+}
